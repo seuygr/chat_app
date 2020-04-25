@@ -17,6 +17,12 @@
 //= require turbolinks
 //= require_tree .
 
+scroll_bottom = function() {
+  if ($('#message_content').length > 0) {
+    $('#message_content').scrollTop($('#message_content')[0].scrollHeight);
+  }
+}
+
 $(document).on('turbolinks:load', function() {
 	$('.ui.dropdown').dropdown();
 
@@ -26,7 +32,8 @@ $(document).on('turbolinks:load', function() {
     .closest('.message')
     .transition('fade')
     ;
-  })
-  ;
+  });
+
+  scroll_bottom()
 })
 
